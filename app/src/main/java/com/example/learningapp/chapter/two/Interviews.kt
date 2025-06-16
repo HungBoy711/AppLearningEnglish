@@ -11,26 +11,26 @@ import com.example.learningapp.R
 import com.example.learningapp.ResultsActivity
 import com.google.firebase.firestore.FirebaseFirestore
 
-data class QuizQuestion3(
+data class QuizQuestion4(
     val question: String = "",
     val answer: String = "",
     val options: Map<String, String> = emptyMap(),
     val order: Long = 0
 )
 
-class Greetings : AppCompatActivity() {
+class Interviews: AppCompatActivity() {
 
     private lateinit var questionView: TextView
     private lateinit var radioGroupOptions: RadioGroup
     private lateinit var nextButton: Button
 
     private lateinit var db: FirebaseFirestore
-    private var questionList: List<QuizQuestion3> = emptyList()
+    private var questionList: List<QuizQuestion4> = emptyList()
     private var currentQuestionIndex = 0
     private var correctAnswersCount = 0
     private var username: String = "Người dùng"
 
-    private val CATEGORY = "Greetings"
+    private val CATEGORY = "Interviews"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,7 +57,7 @@ class Greetings : AppCompatActivity() {
             .get()
             .addOnSuccessListener { snap ->
                 questionList = snap.documents
-                    .mapNotNull { it.toObject(QuizQuestion3::class.java) }
+                    .mapNotNull { it.toObject(QuizQuestion4::class.java) }
                     .sortedBy { it.order }
 
                 if (questionList.isEmpty()) {
@@ -80,7 +80,7 @@ class Greetings : AppCompatActivity() {
         questionView.text = "Câu ${currentQuestionIndex + 1}: ${q.question}"
 
         radioGroupOptions.removeAllViews()
-        q.options.toSortedMap()
+        q.options.toSortedMap()      // sắp xếp theo a, b, c, d cho đẹp
             .forEach { (_, text) ->
                 val rb = RadioButton(this).apply {
                     this.text = text

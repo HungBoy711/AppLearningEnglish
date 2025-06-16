@@ -80,7 +80,7 @@ class SentenceStructure : AppCompatActivity() {
         questionView.text = "Câu ${currentQuestionIndex + 1}: ${q.question}"
 
         radioGroupOptions.removeAllViews()
-        q.options.toSortedMap()      // sắp xếp theo a, b, c, d cho đẹp
+        q.options.toSortedMap()
             .forEach { (_, text) ->
                 val rb = RadioButton(this).apply {
                     this.text = text

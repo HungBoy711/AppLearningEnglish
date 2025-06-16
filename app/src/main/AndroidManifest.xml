@@ -33,13 +33,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".chapter.five.Literary"
-            android:exported="false" />
-        <activity
             android:name=".chapter.one.SentenceStructure"
             android:exported="false" />
         <activity
             android:name=".chapter.one.Tenses"
+            android:exported="false" />
+        <activity
+            android:name=".chapter.two.Greetings"
+            android:exported="false" />
+        <activity
+            android:name=".chapter.two.Interviews"
             android:exported="false" />
         <activity
             android:name=".chaptertopics.TopicActivity"

@@ -11,6 +11,7 @@ import com.example.learningapp.R
 import com.example.learningapp.chapter.one.SentenceStructure
 import com.example.learningapp.chapter.one.Tenses
 import com.example.learningapp.chapter.two.Greetings
+import com.example.learningapp.chapter.two.Interviews
 
 class TopicActivity : AppCompatActivity() {
 
@@ -22,7 +23,7 @@ class TopicActivity : AppCompatActivity() {
     private lateinit var chapter_Image: ImageView
 
     private val chapter1 = arrayOf("SentenceStruc...", "Tenses")
-    private val chapter2 = arrayOf("Greetings")
+    private val chapter2 = arrayOf("Greetings", "Interviews")
     private val chapter3 = arrayOf("Question 3", "Sub Heading 3", "Question 3", "Question 3")
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -86,6 +87,10 @@ class TopicActivity : AppCompatActivity() {
             }
             "Greetings" -> {
                 val intent = Intent(this, Greetings::class.java)
+                startActivity(intent)
+            }
+            "Interviews" -> {
+                val intent = Intent(this, Interviews::class.java)
                 startActivity(intent)
             }
             else -> {
